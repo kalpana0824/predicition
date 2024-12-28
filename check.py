@@ -158,13 +158,22 @@ if selected == 'Parkinsons Prediction':
     parkinsons_diagnosis = ''
 
     # Prediction
-    if st.button('Parkinsons Test Result'):
-        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer, Shimmer_dB, APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE]])
+   if st.button('Parkinsons Test Result'):
+        inputs = validate_inputs([
+            fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer,
+            Shimmer_dB, APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE
+        ])
         
-        if (parkinsons_prediction[0] == 1):
-            parkinsons_diagnosis = 'The person is suffering from Parkinsons disease'
-        else:
-            parkinsons_diagnosis = 'The person is Not suffering from Parkinsons disease'
+        if inputs:
+            # Prediction
+            parkinsons_prediction = parkinsons_model.predict([inputs])
+            
+            if parkinsons_prediction[0] == 1:
+                parkinsons_diagnosis = 'The person is suffering from Parkinson\'s disease'
+            else:
+                parkinsons_diagnosis = 'The person is Not suffering from Parkinson\'s disease'
+
+            st.success(parkinsons_diagnosis)
 
     # Visualization
     if st.button("Visualize Parkinson's Data"):
