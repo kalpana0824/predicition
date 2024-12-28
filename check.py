@@ -5,9 +5,9 @@ import seaborn as sns
 from streamlit_option_menu import option_menu
 
 # Loading the saved models
-diabetes_model = pickle.load(open("/workspaces/predicition/diabetes_model.sav", 'rb'))
-heart_disease_model = pickle.load(open("/workspaces/predicition/heart_model.sav", 'rb'))
-parkinsons_model = pickle.load(open("/workspaces/predicition/parkinsons_model.sav", 'rb'))
+diabetes_model = pickle.load(open("predicition/diabetes_model.sav", 'rb'))
+heart_disease_model = pickle.load(open("/predicition/heart_model.sav", 'rb'))
+parkinsons_model = pickle.load(open("/predicition/parkinsons_model.sav", 'rb'))
 
 # Page Configuration
 st.set_page_config(page_title="Disease Prediction System", layout="wide")
