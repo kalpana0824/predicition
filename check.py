@@ -158,7 +158,7 @@ if selected == 'Parkinsons Prediction':
     parkinsons_diagnosis = ''
 
     # Prediction
-   if st.button('Parkinsons Test Result'):
+    if st.button('Parkinsons Test Result'):
         inputs = validate_inputs([
             fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ, DDP, Shimmer,
             Shimmer_dB, APQ3, APQ5, APQ, DDA, NHR, HNR, RPDE, DFA, spread1, spread2, D2, PPE
